@@ -5,6 +5,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import GradientMesh from "@/components/GradientMesh";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import AudioPlayer from "@/components/AudioPlayer";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -23,14 +24,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Clientes — Gestión Inteligente",
+  title: "CompuMark — WISP, Soporte TI y Reparación de PCs",
   description:
-    "La plataforma moderna para gestionar tus clientes de forma eficiente y profesional.",
+    "Proveedores de Internet WISP, soluciones TI y reparación de computadoras en Lima. Diagnóstico, mantenimiento y recuperación de datos.",
   openGraph: {
-    title: "Clientes — Gestión Inteligente",
+    title: "CompuMark — Tecnología a tu alcance",
     description:
-      "La plataforma moderna para gestionar tus clientes de forma eficiente y profesional.",
+      "Internet WISP, soporte técnico, reparación de PCs y laptops en Lima. Presupuesto sin compromiso.",
+    locale: "es_PE",
+    type: "website",
   },
+  robots: "index, follow",
 };
 
 export default function RootLayout({
@@ -48,6 +52,7 @@ export default function RootLayout({
         <GradientMesh />
         <ParticlesBackground />
         <AudioPlayer />
+        <ThemeToggle />
         <main className="relative z-10">{children}</main>
       </body>
     </html>

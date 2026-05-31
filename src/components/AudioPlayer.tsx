@@ -2,21 +2,21 @@
 
 import { useRef, useState, useCallback } from "react";
 import { Play, Pause } from "lucide-react";
-import YouTube from "react-youtube";
+import YouTube, { type YouTubePlayer } from "react-youtube";
 
 export default function AudioPlayer() {
   const [playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(30);
   const [ready, setReady] = useState(false);
-  const playerRef = useRef<any>(null);
+  const playerRef = useRef<YouTubePlayer | null>(null);
 
-  const onReady = useCallback((e: { target: any }) => {
+  const onReady = useCallback((e: { target: YouTubePlayer }) => {
     playerRef.current = e.target;
     e.target.mute();
     e.target.setVolume(volume);
     e.target.playVideo();
     setReady(true);
-  }, []);
+  }, [volume]);
 
   const togglePlay = () => {
     const p = playerRef.current;
